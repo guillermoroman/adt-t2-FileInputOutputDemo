@@ -77,10 +77,12 @@ public class FileOutputExample {
 
         byte[] miArray = new byte[4096];
 
-        int bytesLeidos = fis.read(miArray);
+        int bytesLeidos = fis.read(miArray, 100, 8);
             System.out.println("Bytes leidos: " + bytesLeidos);
 
-
+            for (int i = 100; i < 100 + bytesLeidos; i++){
+                System.out.print((char)miArray[i]);
+            }
 
         } catch (FileNotFoundException e) {
             System.err.println("No se ha encontrado el archivo");
